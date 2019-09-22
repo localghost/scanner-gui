@@ -10,7 +10,13 @@
     Chromium <span id="chrome-version"></span>,
     and Electron <span id="electron-version"></span>.
 
+    <div id="file-list">
+      File list:
+    </div>
     <!-- You can also require other files to run in this process -->
-    <script src="./dist/renderer.js"></script>
+    <script>
+      require("./dist/renderer.js");
+      // require("./dist/renderer.js");
+    </script>
   </body>
 </html>

@@ -1,5 +1,6 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, Menu } from "electron";
 import * as path from "path";
+import {menu} from "./menu";
 
 let mainWindow: Electron.BrowserWindow;
 
@@ -9,6 +10,7 @@ function createWindow() {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: true,
     },
     width: 800,
   });
@@ -28,10 +30,17 @@ function createWindow() {
   });
 }
 
+// Menu.setApplicationMenu(menu);
+
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on("ready", createWindow);
+app.on("ready", () => {
+  createWindow();
+
+  Menu.setApplicationMenu(menu(mainWindow));
+});
 
 // Quit when all windows are closed.
 app.on("window-all-closed", () => {
