@@ -2,11 +2,11 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
-import {ipcRenderer} from "electron";
+import { ipcRenderer } from "electron";
 
 console.log("inside renderer");
 
 ipcRenderer.on("open-file", (event, files) => {
-    console.log(files);
-    document.getElementById("file-list").innerHTML += files;
+  console.log(files);
+  document.getElementById("file-list").innerHTML += files;
 });
