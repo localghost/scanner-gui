@@ -3,17 +3,21 @@
   <head>
 <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
 
-    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <!--link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
     <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
-    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script-->
+
+    <link rel="stylesheet" href="css/material.min.css" />
     <meta charset="UTF-8">
     <title>Hello World!</title>
   </head>
-  <body class="blue-grey darken-4">
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+  <body class="dark-theme">
+    <div class="sidemenu">
+      <ul class="menu">
+        <li ripple><a href="#"><i class="icon-drive-file"></i>Open file</a></li>
+        <li ripple><a href="#"><i class="icon-folder"></i>Open folder</a></li>
+      </ul>
+    </div>
 
     <div id="file-list">
       File list:
@@ -25,5 +29,6 @@
     </script>
     <ons-button>Click Me</ons-button>
 <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
+    <script src="js/material.min.js"></script>
   </body>
 </html>
