@@ -15,9 +15,9 @@ ipcRenderer.on("open-file", (event, files) => {
 
 function appendFiles(paths: string[]) {
     const fileList = document.querySelector("#file-list .list");
-    for (const p of paths) {
+    paths.forEach((p, index) => {
         fileList.innerHTML += `
-            <li ripple>
+            <li class="ripple" id="path-${index}">
                 <span class="item-text">
                     ${path.basename(p)}
                     <span class="secondary-text">${p}</span>
@@ -25,7 +25,17 @@ function appendFiles(paths: string[]) {
                 <i class="icon-highlight-remove item-action"></i>
             </li>
         `;
-    }
+        document.getElementById(`path-${index}`).addEventListener('click', () => removePath(`path-${index}`));
+    });
+}
+
+function removePath(id: string) {
+    document.getElementById(id).remove();
+}
+
+function removeFile(id: string) {
+    console.log(`Removing file: ${id}`);
+    document.querySelector(`#${id}`).remove();
 }
 
 function addFile() {
