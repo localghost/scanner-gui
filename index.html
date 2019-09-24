@@ -10,28 +10,24 @@
     <link rel="stylesheet" href="css/material.min.css" />
     <meta charset="UTF-8">
 
-    <title>Hello World!</title>
+    <title>Scanner</title>
   </head>
-  <body class="dark-theme">
-    <div class="sidemenu">
+  <body class="dark-theme desktop">
+    <div class="sidemenu sidebar responsive" style="max-width: 200px">
       <ul class="menu">
-        <li ripple><a href="#" id='add-file'><i class="icon-drive-file"></i>Open file</a></li>
-        <li ripple><a href="#"><i class="icon-folder"></i>Open folder</a></li>
-        <li ripple><a href="#"><i class="icon-exit-to-app"></i>Exit</a></li>
+        <li ripple><a href="#" id="add-file"><i class="icon-drive-file"></i>Open file</a></li>
+        <li ripple><a href="#" id="add-folder"><i class="icon-folder"></i>Open folder</a></li>
+        <li ripple><a href="#" id="app-quit"><i class="icon-exit-to-app"></i>Exit</a></li>
       </ul>
     </div>
-
-    <div id="file-list">
-      File list:
+    <div class="main-content">
+      <div id="file-list">
+        <ul class="list">
+        </ul>
+      </div>
     </div>
-    <!-- You can also require other files to run in this process -->
-    <ons-button>Click Me</ons-button>
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>-->
-    <script src="js/material.min.js"></script>
 
-    <script>
-      require("./dist/renderer.js");
-      // require("./dist/renderer.js");
-    </script>
+    <script src="js/material.min.js"></script>
+    <script>require("./dist/renderer.js");</script>
   </body>
 </html>
