@@ -15,9 +15,17 @@ ipcRenderer.on("open-file", (event, files) => {
 
 function appendFiles(paths: string[]) {
     const fileList = document.querySelector("#file-list .list");
-    paths.forEach((p, index) => {
+    let index: number;
+    const indexstr: string = window.sessionStorage.getItem("num_paths");
+    if (indexstr === null) {
+        index = 1;
+    } else {
+        index = Number.parseInt(indexstr, 10) + 1;
+    }
+    paths.forEach((p) => {
+        const id = `path-${index}`;
         fileList.innerHTML += `
-            <li class="ripple" id="path-${index}">
+            <li class="ripple" id="${id}">
                 <span class="item-text">
                     ${path.basename(p)}
                     <span class="secondary-text">${p}</span>
@@ -25,11 +33,18 @@ function appendFiles(paths: string[]) {
                 <i class="icon-highlight-remove item-action"></i>
             </li>
         `;
-        document.getElementById(`path-${index}`).addEventListener('click', () => removePath(`path-${index}`));
+        document.querySelector(`#${id}`).addEventListener('click', () => removePath(id));
+        index = index + 1;
     });
+    window.sessionStorage.setItem("num_paths", index.toString(10));
 }
 
+// function getFromSession<T>(key: string): T {
+//     return window.sessionStorage.getItem(key);
+// }
+
 function removePath(id: string) {
+    console.log(`Removing path with id ${id}`);
     document.getElementById(id).remove();
 }
 
